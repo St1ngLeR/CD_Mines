@@ -603,7 +603,7 @@ void __declspec(naked) a_MineFunc()
         je skip2
         cmp dword ptr [eax + 0x7318], 0
         je skip2
-        cmp dword ptr [eax + 0x6837], 0
+        cmp byte ptr [eax + 0x6837], 0
         je skip2
 
         mov esi, eax
