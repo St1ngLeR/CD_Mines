@@ -716,7 +716,7 @@ void __declspec(naked) a_MineFunc()
         call sub_4D7620
 
         mov ecx, [esp + 0x80]
-        mov [eax + 0x4000], ecx
+        mov [eax + 0x5000], ecx
 
         mov ecx, eax
         mov esi, [esp + 0x80]
@@ -1506,7 +1506,7 @@ void __declspec(naked) a_MinesExplosion()
         fstp dword ptr [eax + 0x80]
 
         mov eax, mine_ptr
-        cmp dword ptr [eax + 0x4000], esi   // add aggression when hits player's mine
+        cmp dword ptr [eax + 0x5000], esi   // add aggression when hits player's mine
         je end
 
         mov eax, esi
@@ -1590,7 +1590,7 @@ void __declspec(naked) a_MinesShowInfo()
         mov show_info, 1
 
         mov ecx, mine_ptr
-        mov ecx, [ecx + 0x4000]
+        mov ecx, [ecx + 0x5000]
         mov player_ptr, ecx
         mov victim_ptr, esi
         fld dword ptr [esi + 0x6EBC]
@@ -1674,15 +1674,15 @@ void __declspec(naked) a_MinesShowInfo2()
         cmp eax, edx
         je end2
 
-        cmp byte ptr [edx + 0x4008], 2
+        cmp byte ptr [edx + 0x5008], 2
         je skip
-        mov [edx + 0x4004], eax
-        inc [edx + 0x4008]
+        mov [edx + 0x5004], eax
+        inc [edx + 0x5008]
         jmp skip2
 
     skip:
-        mov [edx + 0x4004], 0
-        mov [edx + 0x4008], 0
+        mov [edx + 0x5004], 0
+        mov [edx + 0x5008], 0
 
     skip2:
         fld dword ptr [victim_hp]
@@ -1775,7 +1775,7 @@ void __declspec(naked) a_MinesEventHandler()
         fadd dword ptr [esp + 0x20]
         mov dl, [eax + 0x1E00]
         fstp dword ptr [eax + 0x1DFC]
-        cmp [ebx + 0x4004], esi
+        cmp [ebx + 0x5004], esi
         je loc_5084DF
         mov byte ptr [eax + 0x1E00], 7
 
@@ -1800,15 +1800,15 @@ void __declspec(naked) a_MinesEventHandler()
         ret 0x8
 
     loc_5084DF:
-        cmp [ebx + 0x4008], 2
+        cmp [ebx + 0x5008], 2
         je cont
         mov byte ptr [eax + 0x1E00], 7
         jmp loc_5084AF
 
     cont:
         mov byte ptr [eax + 0x1E00], 8
-        mov [ebx + 0x4008], 0
-        mov [ebx + 0x4004], 0
+        mov [ebx + 0x5008], 0
+        mov [ebx + 0x5004], 0
         jmp loc_5084AF
 
     sub_6959C9:
