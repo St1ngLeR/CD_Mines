@@ -1,0 +1,53 @@
+Crashday-ShopDataList
+
+Next:  #---------------------------------------------
+mines     		# identifier name
+mines			# group
+NONE			# parent object (e.g. car folder) or NONE
+$ID gametext/modesetup.txt WEAPONSONLYMINES			# Article name (English)
+DEPRECATED             # Article description (English)
+withrespect 45		# availability condition (see doc for more info) (+ val [+ val2])
+0			# show media _before_ available
+NONE		        # Media showed when available (can be NONE)
+2000			# cost to buy in shop
+NONE		  	# shop picture
+0			# Is this a stock car part?
+
+Next:  #---------------------------------------------
+minigun1     		# identifier name
+minigun			# group
+NONE			# parent object (e.g. car folder) or NONE
+$ID career/shop.lst minigun1.Name			# Article name (English)
+DEPRECATED             # Article description (English)
+withrespect 85		# availability condition (see doc for more info) (+ val [+ val2])
+0			# show media _before_ available
+NONE		        # Media showed when available (can be NONE)
+9000			# cost to buy in shop
+NONE		  	# shop picture
+0			# Is this a stock car part?
+
+Next:  #---------------------------------------------
+misssingle     		# identifier name
+missiles		# group
+NONE			# parent object (e.g. car folder) or NONE
+$ID career/shop.lst misssingle.Name		# Article name (English)
+DEPRECATED             # Article description (English)
+withrespect 255		# availability condition (see doc for more info) (+ val [+ val2])
+0			# show media _before_ available
+NONE		        # Media showed when available (can be NONE)
+20000			# cost to buy in shop
+NONE		  	# shop picture
+0			# Is this a stock car part?
+
+Next:  #---------------------------------------------
+missdouble     		# identifier name
+missiles		# group
+NONE			# parent object (e.g. car folder) or NONE
+$ID career/shop.lst missdouble.Name	        # Article name (English)
+DEPRECATED             # Article description (English)
+withrespect 475		# availability condition (see doc for more info) (+ val [+ val2])
+0			# show media _before_ available
+NONE		        # Media showed when available (can be NONE)
+40000			# cost to buy in shop
+NONE		  	# shop picture
+0			# Is this a stock car part?

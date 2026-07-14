@@ -1,0 +1,736 @@
+CrashGUI-File                                          #
+backmain.tga      		                       # Background picture
+$ID intrface/controls.cgf MenuTitle		                               # Title string
+full    				               # "blinds" background type
+default 					       # default group
+default                 			       # padding distance of elements to their parent frame (in pixels)
+default             				       # additional left/right padding of elements towards the center of their parent
+
+Next:		                                       #
+Type: GUIButton                                        # element type
+Name: btnQuitControlsOptions                           # element name
+Group: default
+Parent: default
+Style: hidedefaultgroup button_back
+Text: $ID intrface/controls.cgf btnQuitControlsOptions.Caption                                             # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20		                                       # x coord
+Y: 440		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat	                                       # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:		                                       #
+Type: GUIButton                                        # element type
+Name: btnUndoControlsOptions                           # element name
+Group: default
+Parent: default
+Style: hidedefaultgroup button_bottomspecial2
+Text: $ID intrface/controls.cgf btnUndoControlsOptions.Caption                                             # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20		                                       # x coord
+Y: 440		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat	                                       # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next: 	                                               #
+Type: GUIFrame                                         # element type
+Name: frmControlsOptions                               # element name
+Group: default
+Parent: default
+Style: hidedefaultgroup frame_aligntopright
+Text: default                                          # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 150		                                       # x coord
+Y: 100		                                       # y coord
+Width: 320	                                       # width ("default" for automatic)
+Height: 310                                            # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next: 	                                               #
+Type: GUISwitch                                        # element type
+Name: swtActiveController                              # element name
+Group: default
+Parent: frmControlsOptions
+Style: hidedefaultgroup halign_toparent valign_belowlast_fix
+Text: $ID intrface/controls.cgf swtActiveController.Caption                                # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 130		                                       # x coord
+Y: 110		                                       # y coord
+Width: 140	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid                                      #
+
+Next:  	                                               #
+Type: GUIButton                                        # element type
+Name: btnOpenPresetKeys                       # element name
+Group: default
+Parent: default
+Style: button_bottomspecial1
+Text: $ID intrface/controls.cgf btnOpenPresetKeys.Caption                     # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 215		                                       # x coord
+Y: 335		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:  	                                               #
+Type: GUIButton                                        # element type
+Name: btnAdvancedControllerOptions                       # element name
+Group: default
+Parent: frmControlsOptions
+Style: hidedefaultgroup align_parentbottom
+Text: $ID intrface/controls.cgf lblSubAdvControllerOptions.Caption                     # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 215		                                       # x coord
+Y: 335		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:  	                                               #
+Type: GUIButton                                        # element type
+Name: btnCustomizeControls                             # element name
+Group: default
+Parent: frmControlsOptions
+Style: hidedefaultgroup halign_toparent valign_abovelast
+Text: $ID intrface/controls.cgf lblSubCustControlsOptions.Caption                               # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 215		                                       # x coord
+Y: 335		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:
+Type: GUILabel	                                       # element type
+Name: lblSubCustControlsOptions                        # element name
+Group: customize
+Parent: default
+Style: label_subcaption
+Text: $ID intrface/controls.cgf lblSubCustControlsOptions.Caption                                        # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20 		                                       # x coord
+Y: 70		                                       # y coord
+Width: 100                                             # width ("default" for automatic)
+Height: default
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:		                                       #
+Type: GUIButton                                        # element type
+Name: btnQuitCustControlsOptions                       # element name
+Group: customize
+Parent: default
+Style: button_back
+Text: $ID intrface/controls.cgf btnQuitCustControlsOptions.Caption                                             # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20		                                       # x coord
+Y: 440		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat	                                       # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next: 	                                               #
+Type: GUIFrame                                         # element type
+Name: frmCustControlsOptions                           # element name
+Group: customize
+Parent: default
+Style: frame_aligntopright
+Text: default                                          # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 150		                                       # x coord
+Y: 100		                                       # y coord
+Width: 320	                                       # width ("default" for automatic)
+Height: 310                                            # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl1                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast_fix
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl2                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl3                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl4                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl5                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl6                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl7                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl8                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl9                                      # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl16                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl10                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl11                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl12                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl13                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl14                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:		                                       #
+Type: GUISwitch                                        # element type
+Name: swtControl15                                     # element name
+Group: customize
+Parent: frmCustControlsOptions
+Style: halign_toparent valign_belowlast
+Text: temp                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+ShowTextNames: true                                    #
+ShowPictures: false                                    #
+Rendermode: solid
+
+Next:
+Type: GUILabel	                                       # element type
+Name: lblSubAdvControllerOptions                       # element name
+Group: advanced
+Parent: default
+Style: label_subcaption
+Text: $ID intrface/controls.cgf lblSubAdvControllerOptions.Caption                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20 		                                       # x coord
+Y: 70		                                       # y coord
+Width: 100                                             # width ("default" for automatic)
+Height: default
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:		                                       #
+Type: GUIButton                                        # element type
+Name: btnQuitAdvControllerOptions                      # element name
+Group: advanced
+Parent: default
+Style: button_back
+Text: $ID intrface/controls.cgf btnQuitAdvControllerOptions.Caption                                             # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20		                                       # x coord
+Y: 440		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: fat	                                       # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next: 	                                               #
+Type: GUIFrame                                         # element type
+Name: frmAdvControllerOptions2                         # element name
+Group: advanced
+Parent: default
+Style: frame_aligntopright
+Text: default                                          # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 0		                                       # x coord
+Y: 100		                                       # y coord
+Width: 500	                                       # width ("default" for automatic)
+Height: 240                                            # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:                                                  #
+Type: GUIChecker                                       # element type
+Name: chkAnalogAxes                                    # element name
+Group: advanced
+Parent: frmAdvControllerOptions2
+Style: halign_toparent valign_belowlast_fix
+Text: $ID intrface/controls.cgf chkAnalogAxes.Caption                                      # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 100                                                 # x coord
+Y: 100                                                   # y coord
+Width: default                                         # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:
+Type: GUISlider                                        # element type
+Name: sldNonlinearSteering                                     # element name
+Group: advanced
+Parent: frmAdvControllerOptions2
+Style: halign_toparent valign_belowlast
+Text: $ID intrface/controls.cgf sldNonlinearSteering.Caption                  # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 100		                                       # x coord
+Y: 310		                                       # y coord
+Width: default	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+MinValue: 0	                                       #
+MaxValue: 100	                                       #
+StepSize: 10	                                       #
+StartValue: 50	                                       #
+ShowValues: false                                      #
+
+Next:
+Type: GUISlider                                        # element type
+Name: sldDeadzone                                      # element name
+Group: advanced
+Parent: frmAdvControllerOptions2
+Style: halign_toparent valign_belowlast
+Text: $ID intrface/controls.cgf sldDeadzone.Caption                                         # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 100		                                       # x coord
+Y: 310		                                       # y coord
+Width: default	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+MinValue: 0	                                       #
+MaxValue: 50	                                       #
+StepSize: 10	                                       #
+StartValue: 50	                                       #
+ShowValues: false                                      #
+
+Next:
+Type: GUISlider                                        # element type
+Name: sldFFStrength                                    # element name
+Group: advanced
+Parent: frmAdvControllerOptions2
+Style: halign_toparent valign_belowlast
+Text: $ID intrface/controls.cgf sldFFStrength.Caption                                         # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 100		                                       # x coord
+Y: 310		                                       # y coord
+Width: default	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+MinValue: 0	                                       #
+MaxValue: 100	                                       #
+StepSize: 10	                                       #
+StartValue: 50	                                       #
+ShowValues: false                                      #
+
+Next:	                                               #
+Type: GUIPicture                                       # element type
+Name: picJoyRange                                      # element name
+Group: advanced
+Parent: frmAdvControllerOptions
+Style: default
+Text: default                                          # screen caption ("default" for no text)
+Enabled: 0                                             # enabled? (0 or 1)
+X: 480		                                       # x coord
+Y: 130		                                       # y coord
+Width: 130                                             # width ("default" for automatic)
+Height: 130                                            # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+Picture: misc/joyrange.tga                             #
+Rendermode: add                                        #
+Alpha: 1.0                                             #
+
+Next:  	                                               #
+Type: GUIPicture                                       # element type
+Name: picJoyPosition                                   # element name
+Group: advanced
+Parent: frmAdvControllerOptions
+Style: default
+Text: default                                          # screen caption ("default" for no text)
+Enabled: 0                                             # enabled? (0 or 1)
+X: 540		                                       # x coord
+Y: 190		                                       # y coord
+Width: 5                                               # width ("default" for automatic)
+Height: 5                                              # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+Picture: colwhite.tga                                  #
+Rendermode: solid                                      #
+Alpha: 1.0                                             #
+
+Next:	                                       #
+Type: GUILabel                                         # element type
+Name: lblXPos                                         # element name
+Group: advanced
+Parent: frmAdvControllerOptions
+Style: default
+Text: -                                           # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 480		                                       # x coord
+Y: 270		                                       # y coord
+Width: default                                         # width ("default" for automatic)
+Height: default                                          # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:	                                       #
+Type: GUILabel                                         # element type
+Name: lblYPos                                         # element name
+Group: advanced
+Parent: frmAdvControllerOptions
+Style: default
+Text: -                                           # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 545		                                       # x coord
+Y: 270		                                       # y coord
+Width: default                                         # width ("default" for automatic)
+Height: default                                          # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:
+Type: GUIButton                                        # element type
+Name: btnResetSteering                                 # element name
+Group: advanced
+Parent: default
+Style: button_bottomspecial1
+Text: $ID gametext/general.txt RESETTODEFAULTS                                        # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 180	 	                                       # x coord
+Y: 215		                                       # y coord
+Width: 100	                                       # width ("default" for automatic)
+Height: default                                        # height ("default" for automatic)
+TextAlign: center                                      # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:
+Type: GUILabel	                                       # element type
+Name: lblSubPresetKeys     # element name
+Group: presetkeys
+Parent: default
+Style: label_subcaption
+Text: $ID intrface/controls.cgf lblSubPresetKeys.Caption                                        # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20 		                                       # x coord
+Y: 70		                                       # y coord
+Width: 100                                             # width ("default" for automatic)
+Height: default
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:
+Type: GUIButton	                                       # element type
+Name: btnLeavePresetKeys     # element name
+Group: presetkeys
+Parent: default
+Style: button_back
+Text: $ID gametext/general.txt BACK	# screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 20 		                                       # x coord
+Y: 70		                                       # y coord
+Width: 100                                             # width ("default" for automatic)
+Height: default
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: normal                                      # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
+Next:  		                                       #
+Type: GUIFrame                                         # TODO! Elementtyp (bis jetzt GUILabel, GUIButton, GUIFrame, GUIChecker)
+Name: frmPresetKeys                                    # element name
+Group: presetkeys
+Parent: default
+Style: hidedefaultgroup frame_hud widescreen_aligncenter
+Text: default                                          # screen caption ("default" for no text)
+Enabled: 1                                             # enabled? (0 or 1)
+X: 120		                                       # x coord
+Y: 120		                                       # y coord
+Width: 360	                                       # width ("default" for automatic)
+Height: 240                                             # height ("default" for automatic)
+TextAlign: left                                        # text alignment (left, right, center, default)
+TextStyle: fat                                         # font type (normal, fat, verybig)
+TextColor: default                                     # rgb text color or "default"
+
