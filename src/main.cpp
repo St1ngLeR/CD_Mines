@@ -1837,6 +1837,222 @@ void __declspec(naked) a_MinesEventHandler()
     }
 }
 
+const char* swtControl16_name = "swtControl16";
+int swtControl16_ptr;
+const char* swtControl16_id = "16";
+
+void __declspec(naked) a_MinesControls()
+{
+    __asm
+    {
+        mov ebx, -1
+        call sub_6959C9
+
+		mov edx, dword ptr [swtControl16_name]
+		lea eax, [esp + 0x4F0]
+		call sub_69586C
+		mov edx, eax
+		mov eax, esi
+		call sub_49B170
+		mov ds: [swtControl16_ptr], eax
+		xor edx, edx
+		lea eax, [esp + 0x4F0]
+        mov ebx, -1
+		call sub_6959C9
+
+		mov ebx, -1
+		mov edx, dword ptr [swtControl16_name]
+		lea eax, [esp + 0x140]
+		call sub_69586C
+		mov ebx, 0x51CA70
+		mov edx, eax
+		mov eax, esi
+		call sub_4A0410
+		mov ds: [swtControl16_ptr], eax
+		xor edx, edx
+		lea eax, [esp + 0x140]
+		call sub_6959C9
+						
+        jmp loc_51B719
+
+    sub_4A0410:
+        push 0x4A0410
+        retn
+
+    sub_69586C:
+        push 0x69586C
+        retn
+
+    sub_49B170:
+        push 0x49B170
+        retn
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
+
+    loc_51B719:
+        push 0x51B719
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls2()
+{
+    __asm
+    {
+        call sub_6959C9
+
+        mov ebx, 0x9
+        mov ecx, ds: [swtControl16_ptr]
+        lea edx, [esp + 0x1C0]
+        mov eax, ds: [0x78D5F4]
+        mov esi, [ecx + 0x164]
+        call sub_4912D0
+        mov edx, eax
+        mov eax, ecx
+        call dword ptr [esi + 0x4]
+        lea eax, [esp + 0x1C0]
+        xor edx, edx
+        call sub_6959C9
+
+        jmp loc_51983C
+
+    sub_4912D0:
+        push 0x4912D0
+        retn
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
+
+    loc_51983C:
+        push 0x51983C
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls3()
+{
+    __asm
+    {
+        call sub_4B2790
+
+        mov ebx, 1
+        mov eax, ds: [swtControl16_ptr]
+        call sub_4B2790
+
+        jmp loc_519922
+            
+    sub_4B2790:
+        push 0x4B2790
+        retn
+
+    loc_519922:
+        push 0x519922
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls4()
+{
+    __asm
+    {
+        call sub_6959C9
+
+        mov ebx, -1
+        mov edx,0x6CA1EC
+        lea eax,[esp+0x3D0]
+        call sub_69586C
+        mov edx,0x9
+        mov ecx,eax
+        mov eax, ds: [0x78D5F4]
+        call sub_4913B0
+        lea edx,[esp+0x3B0]
+        movsx ebx,ax
+        mov eax, ds: [0x78D5F4]
+        call sub_490F00
+        mov ebx,-1
+        mov edx, swtControl16_id
+        mov esi,eax
+        lea eax,[esp+0x170]
+        call sub_69586C
+        mov edi,ds: [swtControl16_ptr]
+        mov ebx,esi
+        mov edx,eax
+        mov eax,edi
+        call sub_4B3460
+        lea eax,[esp+0x170]
+        xor edx,edx
+        call sub_6959C9
+        lea eax,[esp+0x3B0]
+        xor edx,edx
+        call sub_6959C9
+        lea eax,[esp+0x3D0]
+        xor edx,edx
+        call sub_6959C9
+
+        jmp loc_51A154
+    
+    sub_4B3460:
+        push 0x4B3460
+        retn
+
+    sub_490F00:
+        push 0x490F00
+        retn
+
+    sub_4913B0:
+        push 0x4913B0
+        retn
+
+    sub_69586C:
+        push 0x69586C
+        retn
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
+
+    loc_51A154:
+        push 0x51A154
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls5()
+{
+    __asm
+    {
+        mov esi, ds: [swtControl16_ptr]
+        cmp esi, ds: [0x78E938]
+        jne end
+        mov edx, 0x9
+        mov eax, ds: [0x78D5F4]
+        call sub_491490
+        and eax, 0xFF
+        mov ds: [0x70E1B0], eax
+
+    end:
+        call sub_5194C0
+        jmp loc_51A5A7
+
+    sub_491490:
+        push 0x491490
+        retn
+
+    loc_51A5A7:
+        push 0x51A5A7
+        retn
+
+    sub_5194C0:
+        push 0x5194C0
+        retn
+    }
+}
+
+const char* controls_gui_page = "controls2.cgf";
+
 void Mines()
 {
     injector::MakeJMP(0x53393C, a_MinesShop, true);
@@ -1860,6 +2076,12 @@ void Mines()
     injector::WriteMemory<BYTE>(0x43E1A9, 0xC3, true);
     injector::WriteMemory<BYTE>(0x50DC67, 6, true); // HUD message - Mine Hit
     injector::WriteMemory<BYTE>(0x50DCD4, 6, true); // HUD message - Double Mine Hit
+    injector::WriteMemory(0x56A1E3, controls_gui_page, true);
+    injector::MakeJMP(0x51B714, a_MinesControls, true);
+    injector::MakeJMP(0x519837, a_MinesControls2, true);
+    injector::MakeJMP(0x51991D, a_MinesControls3, true);
+    injector::MakeJMP(0x51A14F, a_MinesControls4, true);
+    injector::MakeJMP(0x51A5A2, a_MinesControls5, true);
 }
 
 
