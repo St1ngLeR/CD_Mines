@@ -1242,41 +1242,27 @@ void __declspec(naked) a_MinesHandler()
         cmp byte ptr [eax + 0x959], 0
         je end
 
-        mov eax, edi
-        call sub_5FBC60
+        //cmp byte ptr [eax + 0x959], 1
+        //je end2
 
-        mov esi, ds: [0x7DE710]
-        mov edx, eax
-        mov ebx, 0
-        mov eax, esi
-        call sub_637800
-
-        jmp end
-
-    end:
-        mov edx, mine_class
-        lea eax, [esp + 0x20]
-        call sub_696058
-        test eax, eax
-        je end2
-
-        mov eax, edi
-        fld dword ptr [eax + 0x88]
-        fcomp dword ptr [mine_life_time]
-        fstsw ax
-        sahf    
-        jb end2
-
-        mov eax, edi
-        call sub_5FBC60
-
-        mov esi, ds: [0x7DE710]
-        mov edx, eax
-        mov ebx, 0
-        mov eax, esi
-        call sub_637800
+        //mov eax, edi
+        //fld dword ptr [eax + 0x88]
+        //fcomp dword ptr [mine_life_time]
+        //fstsw ax
+        //sahf    
+        //jb end
 
     end2:
+        mov eax, edi
+        call sub_5FBC60
+
+        mov esi, ds: [0x7DE710]
+        mov edx, eax
+        mov ebx, 0
+        mov eax, esi
+        call sub_637800
+
+    end:
         mov eax, edi
         fld dword ptr [edi + 0x78]
         fcomp dword ptr [eax + 0x92C]
@@ -2082,6 +2068,7 @@ void Mines()
     injector::MakeJMP(0x51991D, a_MinesControls3, true);
     injector::MakeJMP(0x51A14F, a_MinesControls4, true);
     injector::MakeJMP(0x51A5A2, a_MinesControls5, true);
+    injector::MakeNOP(0x5B5D41, 2, true);
 }
 
 
