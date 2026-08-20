@@ -10,6 +10,222 @@
 
 #include "injector/injector.hpp"
 
+const char* swtControl16_name = "swtControl16";
+int swtControl16_ptr;
+const char* swtControl16_id = "16";
+
+void __declspec(naked) a_MinesControls()
+{
+    __asm
+    {
+        mov ebx, -1
+        call sub_6959C9
+
+		mov edx, dword ptr [swtControl16_name]
+		lea eax, [esp + 0x4F0]
+		call sub_69586C
+		mov edx, eax
+		mov eax, esi
+		call sub_49B170
+		mov ds: [swtControl16_ptr], eax
+		xor edx, edx
+		lea eax, [esp + 0x4F0]
+        mov ebx, -1
+		call sub_6959C9
+
+		mov ebx, -1
+		mov edx, dword ptr [swtControl16_name]
+		lea eax, [esp + 0x140]
+		call sub_69586C
+		mov ebx, 0x51CA70
+		mov edx, eax
+		mov eax, esi
+		call sub_4A0410
+		mov ds: [swtControl16_ptr], eax
+		xor edx, edx
+		lea eax, [esp + 0x140]
+		call sub_6959C9
+						
+        jmp loc_51B719
+
+    sub_4A0410:
+        push 0x4A0410
+        retn
+
+    sub_69586C:
+        push 0x69586C
+        retn
+
+    sub_49B170:
+        push 0x49B170
+        retn
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
+
+    loc_51B719:
+        push 0x51B719
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls2()
+{
+    __asm
+    {
+        call sub_6959C9
+
+        mov ebx, 0x9
+        mov ecx, ds: [swtControl16_ptr]
+        lea edx, [esp + 0x1C0]
+        mov eax, ds: [0x78D5F4]
+        mov esi, [ecx + 0x164]
+        call sub_4912D0
+        mov edx, eax
+        mov eax, ecx
+        call dword ptr [esi + 0x4]
+        lea eax, [esp + 0x1C0]
+        xor edx, edx
+        call sub_6959C9
+
+        jmp loc_51983C
+
+    sub_4912D0:
+        push 0x4912D0
+        retn
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
+
+    loc_51983C:
+        push 0x51983C
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls3()
+{
+    __asm
+    {
+        call sub_4B2790
+
+        mov ebx, 1
+        mov eax, ds: [swtControl16_ptr]
+        call sub_4B2790
+
+        jmp loc_519922
+            
+    sub_4B2790:
+        push 0x4B2790
+        retn
+
+    loc_519922:
+        push 0x519922
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls4()
+{
+    __asm
+    {
+        call sub_6959C9
+
+        mov ebx, -1
+        mov edx,0x6CA1EC
+        lea eax,[esp+0x3D0]
+        call sub_69586C
+        mov edx,0x9
+        mov ecx,eax
+        mov eax, ds: [0x78D5F4]
+        call sub_4913B0
+        lea edx,[esp+0x3B0]
+        movsx ebx,ax
+        mov eax, ds: [0x78D5F4]
+        call sub_490F00
+        mov ebx,-1
+        mov edx, swtControl16_id
+        mov esi,eax
+        lea eax,[esp+0x170]
+        call sub_69586C
+        mov edi,ds: [swtControl16_ptr]
+        mov ebx,esi
+        mov edx,eax
+        mov eax,edi
+        call sub_4B3460
+        lea eax,[esp+0x170]
+        xor edx,edx
+        call sub_6959C9
+        lea eax,[esp+0x3B0]
+        xor edx,edx
+        call sub_6959C9
+        lea eax,[esp+0x3D0]
+        xor edx,edx
+        call sub_6959C9
+
+        jmp loc_51A154
+    
+    sub_4B3460:
+        push 0x4B3460
+        retn
+
+    sub_490F00:
+        push 0x490F00
+        retn
+
+    sub_4913B0:
+        push 0x4913B0
+        retn
+
+    sub_69586C:
+        push 0x69586C
+        retn
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
+
+    loc_51A154:
+        push 0x51A154
+        retn
+    }
+}
+
+void __declspec(naked) a_MinesControls5()
+{
+    __asm
+    {
+        mov esi, ds: [swtControl16_ptr]
+        cmp esi, ds: [0x78E938]
+        jne end
+        mov edx, 0x9
+        mov eax, ds: [0x78D5F4]
+        call sub_491490
+        and eax, 0xFF
+        mov ds: [0x70E1B0], eax
+
+    end:
+        call sub_5194C0
+        jmp loc_51A5A7
+
+    sub_491490:
+        push 0x491490
+        retn
+
+    loc_51A5A7:
+        push 0x51A5A7
+        retn
+
+    sub_5194C0:
+        push 0x5194C0
+        retn
+    }
+}
+
+const char* controls_gui_page = "controls2.cgf";
+
 void __declspec(naked) a_MinesShop()
 {
     __asm
@@ -716,7 +932,7 @@ void __declspec(naked) a_MineFunc()
         call sub_4D7620
 
         mov ecx, [esp + 0x80]
-        mov [eax + 0x5000], ecx
+        mov [eax + 0x20], ecx   // !!!
 
         mov ecx, eax
         mov esi, [esp + 0x80]
@@ -1209,6 +1425,8 @@ float mine_activate_time = 0.1f;
 
 float mine_life_time = 30.f;
 
+char buff2[0x20];
+
 void __declspec(naked) a_MinesHandler()
 {
     __asm
@@ -1239,18 +1457,15 @@ void __declspec(naked) a_MinesHandler()
         mov eax, edi
         mov byte ptr [eax + 0x940], 6   // 6 - EXPLOSIVE
 
-        cmp byte ptr [eax + 0x959], 0
-        je end
+        cmp byte ptr [eax + 0x959], 1
+        je end2
 
-        //cmp byte ptr [eax + 0x959], 1
-        //je end2
-
-        //mov eax, edi
-        //fld dword ptr [eax + 0x88]
-        //fcomp dword ptr [mine_life_time]
-        //fstsw ax
-        //sahf    
-        //jb end
+        mov eax, edi
+        fld dword ptr [eax + 0x88]
+        fcomp dword ptr [mine_life_time]
+        fstsw ax
+        sahf    
+        jb end
 
     end2:
         mov eax, edi
@@ -1263,10 +1478,18 @@ void __declspec(naked) a_MinesHandler()
         call sub_637800
 
     end:
+        lea eax, [esp + 0x20]
+        xor edx, edx
+        call sub_6959C9
+
         mov eax, edi
         fld dword ptr [edi + 0x78]
         fcomp dword ptr [eax + 0x92C]
         jmp loc_6015B9
+
+    sub_6959C9:
+        push 0x6959C9
+        retn
 
     sub_637800:
         push 0x637800
@@ -1297,239 +1520,92 @@ void __declspec(naked) a_MinesHandler()
         retn
     }
 }
-/*
-void __declspec(naked) a_MinesHitInfo()
-{
-    __asm
-    {
-        // eax - mine
-        // eax + 0x8080 - car dropped the mine
-        // esi - car hitted by mine
 
-        call sub_4D7230
-
-        mov ebx, eax
-
-        lea eax, [esp + 0x20]
-        call sub_69598E
-
-        mov eax, ebx
-        call sub_5FB9F0
-
-        mov edx, eax
-        lea eax, [esp + 0x20]
-        call sub_695A15
-
-        mov edx, mine_class
-        lea eax, [esp + 0x20]
-        call sub_696058
-        test eax, eax
-        je end
-
-        mov eax, [ebx + 0x8080]
-        mov mine_owner, eax
-        mov eax, ebx
-        cmp dword ptr mine_owner, esi   // skip if hitted by own mine
-        je end
-
-        mov ebx, ds: [0x7DEA20]
-        mov ebx, [ebx + 0x10]
-        mov ebx, [ebx + 0xC]
-        mov ebx, [ebx]
-        cmp dword ptr mine_owner, ebx    // check if POV is from mine dropper
-        jne end
-
-        mov show_info, 1
-
-    end:
-        jmp loc_4D17F1
-
-    sub_4D7230:
-        push 0x4D7230
-        retn
-
-    sub_69598E:
-        push 0x69598E
-        retn
-
-    sub_695A15:
-        push 0x695A15
-        retn
-
-    sub_696058:
-        push 0x696058
-        retn
-
-    sub_5FB9F0:
-        push 0x5FB9F0
-        retn
-
-    loc_6015B9:
-        push 0x6015B9
-        retn
-
-    loc_4D17F1:
-        push 0x4D17F1
-        retn
-    }
-}
-
-int show_info2;
-
-void __declspec(naked) a_MinesGetPlayerHP()
-{
-    __asm
-    {
-        mov [esp + 0x198], eax
-
-        cmp show_info, 1
-        je loc_4D0838
-
-        cmp show_info2, 1
-        je loc_4D0838
-
-        fld dword ptr [eax + 0x6EBC]
-        fstp dword ptr [hp_before]
-
-        jmp loc_4D0838
-
-    loc_4D0838:
-        push 0x4D0838
-        retn
-    }
-}
-
-int curcar;
-
-float hp_before_sub = 3.f;
-
-void __declspec(naked) a_MinesShowHitInfo()
-{
-    __asm
-    {
-        // eax - car dropped the mine
-        // ecx -  car hitted by mine
-
-        cmp show_info, 0
-        je end
-
-        mov eax, [ebp - 0x10]
-
-        cmp eax, mine_owner
-        je end2
-        mov ecx, eax
-
-    end2:
-        mov show_info2, 1
-
-        mov eax, mine_owner
-        mov byte ptr [eax + 0x9790], 7   // 7 - Mine Hit
-
-        fld dword ptr [hp_before]
-        fsub dword ptr [hp_before_sub]
-        fld dword ptr [ecx + 0x6EBC]
-        fcomip st(0), st(1)
-        jnb end
-        fstp st(0)
-
-        fld dword ptr [hp_before]
-        fsub dword ptr [ecx + 0x6EBC]
-        fstp dword ptr [eax + 0x978C]
-
-        mov show_info, 0
-
-    end:
-        mov esp, ebp
-        pop ebp
-        pop edi
-        pop esi
-        pop edx
-        pop ecx
-        pop ebx
-        ret
-    }
-}
-*/
-float mine_damage = 50.f;
-float mine_impulse = 7.5f;
-float mine_ai_aggr = 20.f;
+float mine_explosion_impulse = 2000.f;
+float mine_velocity_impulse = 10000.f;
+float mine_ai_aggr = 100.f;
 
 int mine_ptr;
 
 int show_info;
 
+float hp_fin;
+
 void __declspec(naked) a_MinesExplosion()
 {
     __asm
     {
-        lea eax, [esp + 0x20]
-        call sub_69598E
+        pushfd
+        pushad
 
-        mov eax, mine_ptr
-        call sub_5FB9F0
+        mov eax, [esi + 0x26D6]
+        sar eax, 0x10
+        imul eax, eax, 0x70
+        mov ebx, [esi + eax + 0x18DC]
+        test ebx, ebx
+        je custom_done
 
-        mov edx, eax
-        lea eax, [esp + 0x20]
-        call sub_695A15
-
+        mov eax, ebx
         mov edx, mine_class
-        lea eax, [esp + 0x20]
-        call sub_696058
-        test eax, eax
-        je end
+        call sub_5FBA90
+        test al, al
+        je custom_done
 
-        fld dword ptr [esp]
-        fmul dword ptr [mine_damage]
-        fstp dword ptr [esp]
-            
         mov eax, esi
-        mov eax, [eax + 0xCC0]
+        mov edx, 0x6E653E   // CD3DCAROBJECT
+        call sub_5FBA90
+        test al, al
+        je custom_done
 
-        fld dword ptr [mine_impulse]
+        mov mine_ptr, ebx
+
+        fld dword ptr [mine_explosion_impulse]
+        fstp dword ptr [esp + 0x24]
+
+        mov eax, [esi + 0xCC0]
+        test eax, eax
+        je skip_velocity
+
+        fld dword ptr [mine_velocity_impulse]
+        fdiv dword ptr [esi + 0x944]
         fstp dword ptr [eax + 0x78]
 
-        fld dword ptr [mine_impulse]
+        fld dword ptr [mine_velocity_impulse]
+        fdiv dword ptr [esi + 0x944]
         fstp dword ptr [eax + 0x80]
 
-        mov eax, mine_ptr
-        cmp dword ptr [eax + 0x5000], esi   // add aggression when hits player's mine
-        je end
+    skip_velocity:
+        mov eax, [ebx + 0x20]
+        cmp eax, esi
+        je custom_done
 
-        mov eax, esi
-        fld dword ptr [eax + 0xB800]
-        fadd dword ptr [mine_ai_aggr]
-        fstp dword ptr [eax + 0xB800]
+        cmp byte ptr ds: [0x7CD0E0], 0
+        jne custom_done_2
+
+        mov eax, ds: [0x78CEE0]
+        mov eax, [eax + 0x4]
+
+        cmp eax, esi
+        je custom_done
+
+        fld dword ptr [mine_ai_aggr]
+        fstp dword ptr [esi + 0xB800]
+
+    custom_done_2:
+        cmp dword ptr [esi + 0x6EBC], 0
+        je custom_done
 
         mov show_info, 1
 
-        jmp end
+    custom_done:
+        popad
+        popfd
 
-    end:
-        mov eax, [esi+0x26D6]
+        mov eax, [esi + 0x26D6]
         jmp loc_4D162A
 
-    sub_4D7060:
-        push 0x4D7060
-        retn
-
-    sub_4DA5B0:
-        push 0x4DA5B0
-        retn
-
-    sub_69598E:
-        push 0x69598E
-        retn
-
-    sub_695A15:
-        push 0x695A15
-        retn
-
-    sub_696058:
-        push 0x696058
-        retn
-
-    sub_5FB9F0:
-        push 0x5FB9F0
+    sub_5FBA90:
+        push 0x5FBA90
         retn
 
     loc_4D162A:
@@ -1537,15 +1613,6 @@ void __declspec(naked) a_MinesExplosion()
         retn
     }
 }
-
-int restore1;
-int restore2;
-int restore3;
-int restore4;
-int restore5;
-int restore6;
-int restore7;
-int restore8;
 
 int player_ptr;
 int victim_ptr;
@@ -1557,26 +1624,11 @@ void __declspec(naked) a_MinesShowInfo()
     {
         call sub_5BF170
 
-        lea eax, [esp + 0x20]
-        call sub_69598E
-
-        mov eax, mine_ptr
-        call sub_5FB9F0
-
-        mov edx, eax
-        lea eax, [esp + 0x20]
-        call sub_695A15
-
-        mov edx, mine_class
-        lea eax, [esp + 0x20]
-        call sub_696058
-        test eax, eax
+        cmp byte ptr [show_info], 0
         je end
 
-        mov show_info, 1
-
         mov ecx, mine_ptr
-        mov ecx, [ecx + 0x5000]
+        mov ecx, [ecx + 0x20]
         mov player_ptr, ecx
         mov victim_ptr, esi
         fld dword ptr [esi + 0x6EBC]
@@ -1619,40 +1671,12 @@ void __declspec(naked) a_MinesShowInfo()
     }
 }
 
-void __declspec(naked) a_MinesExplosion2()
-{
-    __asm
-    {
-        mov eax, [esi + eax + 0x18DC]
-        mov mine_ptr, eax
-
-        jmp loc_4D0AA5
-
-    loc_4D0AA5:
-        push 0x4D0AA5
-        retn
-    }
-}
-
-float hp_fin;
-
 void __declspec(naked) a_MinesShowInfo2()
 {
     __asm
     {
-        //cmp dword ptr ds: [0x7CD0E0], 0
-        //jne end2
         cmp byte ptr [show_info], 0
         je end
-
-        mov restore1, eax
-        mov restore2, ebx
-        mov restore3, ecx
-        mov restore4, edx
-        mov restore5, esi
-        mov restore6, edi
-        mov restore7, ebp
-        mov restore8, esp
 
         mov eax, player_ptr
         mov edx, victim_ptr
@@ -1689,15 +1713,6 @@ void __declspec(naked) a_MinesShowInfo2()
     wreck_end:
         push dword ptr [hp_fin]
         call dword ptr ds: [0x78A7F0]
-
-        mov eax, restore1
-        mov ebx, restore2
-        mov ecx, restore3
-        mov edx, restore4
-        mov esi, restore5
-        mov edi, restore6
-        mov ebp, restore7
-        mov esp, restore8
 
     end2:
         mov show_info, 0
@@ -1744,8 +1759,8 @@ void __declspec(naked) a_MinesEventHandler()
         call sub_4513D0
         test al, al
         je loc_508438
-        //mov eax, esp
-        //call sub_69598E
+        mov eax, esp
+        call sub_69598E
         mov eax, esi
         call sub_5061B0
         mov ecx, [eax + 0x30]
@@ -1776,9 +1791,9 @@ void __declspec(naked) a_MinesEventHandler()
         call sub_508580
 
     loc_5084CD:
-        //mov eax, esp
-        //xor edx, edx
-        //call sub_6959C9
+        mov eax, esp
+        xor edx, edx
+        call sub_6959C9
         add esp, 0x10
         pop esi
         pop ecx
@@ -1823,222 +1838,6 @@ void __declspec(naked) a_MinesEventHandler()
     }
 }
 
-const char* swtControl16_name = "swtControl16";
-int swtControl16_ptr;
-const char* swtControl16_id = "16";
-
-void __declspec(naked) a_MinesControls()
-{
-    __asm
-    {
-        mov ebx, -1
-        call sub_6959C9
-
-		mov edx, dword ptr [swtControl16_name]
-		lea eax, [esp + 0x4F0]
-		call sub_69586C
-		mov edx, eax
-		mov eax, esi
-		call sub_49B170
-		mov ds: [swtControl16_ptr], eax
-		xor edx, edx
-		lea eax, [esp + 0x4F0]
-        mov ebx, -1
-		call sub_6959C9
-
-		mov ebx, -1
-		mov edx, dword ptr [swtControl16_name]
-		lea eax, [esp + 0x140]
-		call sub_69586C
-		mov ebx, 0x51CA70
-		mov edx, eax
-		mov eax, esi
-		call sub_4A0410
-		mov ds: [swtControl16_ptr], eax
-		xor edx, edx
-		lea eax, [esp + 0x140]
-		call sub_6959C9
-						
-        jmp loc_51B719
-
-    sub_4A0410:
-        push 0x4A0410
-        retn
-
-    sub_69586C:
-        push 0x69586C
-        retn
-
-    sub_49B170:
-        push 0x49B170
-        retn
-
-    sub_6959C9:
-        push 0x6959C9
-        retn
-
-    loc_51B719:
-        push 0x51B719
-        retn
-    }
-}
-
-void __declspec(naked) a_MinesControls2()
-{
-    __asm
-    {
-        call sub_6959C9
-
-        mov ebx, 0x9
-        mov ecx, ds: [swtControl16_ptr]
-        lea edx, [esp + 0x1C0]
-        mov eax, ds: [0x78D5F4]
-        mov esi, [ecx + 0x164]
-        call sub_4912D0
-        mov edx, eax
-        mov eax, ecx
-        call dword ptr [esi + 0x4]
-        lea eax, [esp + 0x1C0]
-        xor edx, edx
-        call sub_6959C9
-
-        jmp loc_51983C
-
-    sub_4912D0:
-        push 0x4912D0
-        retn
-
-    sub_6959C9:
-        push 0x6959C9
-        retn
-
-    loc_51983C:
-        push 0x51983C
-        retn
-    }
-}
-
-void __declspec(naked) a_MinesControls3()
-{
-    __asm
-    {
-        call sub_4B2790
-
-        mov ebx, 1
-        mov eax, ds: [swtControl16_ptr]
-        call sub_4B2790
-
-        jmp loc_519922
-            
-    sub_4B2790:
-        push 0x4B2790
-        retn
-
-    loc_519922:
-        push 0x519922
-        retn
-    }
-}
-
-void __declspec(naked) a_MinesControls4()
-{
-    __asm
-    {
-        call sub_6959C9
-
-        mov ebx, -1
-        mov edx,0x6CA1EC
-        lea eax,[esp+0x3D0]
-        call sub_69586C
-        mov edx,0x9
-        mov ecx,eax
-        mov eax, ds: [0x78D5F4]
-        call sub_4913B0
-        lea edx,[esp+0x3B0]
-        movsx ebx,ax
-        mov eax, ds: [0x78D5F4]
-        call sub_490F00
-        mov ebx,-1
-        mov edx, swtControl16_id
-        mov esi,eax
-        lea eax,[esp+0x170]
-        call sub_69586C
-        mov edi,ds: [swtControl16_ptr]
-        mov ebx,esi
-        mov edx,eax
-        mov eax,edi
-        call sub_4B3460
-        lea eax,[esp+0x170]
-        xor edx,edx
-        call sub_6959C9
-        lea eax,[esp+0x3B0]
-        xor edx,edx
-        call sub_6959C9
-        lea eax,[esp+0x3D0]
-        xor edx,edx
-        call sub_6959C9
-
-        jmp loc_51A154
-    
-    sub_4B3460:
-        push 0x4B3460
-        retn
-
-    sub_490F00:
-        push 0x490F00
-        retn
-
-    sub_4913B0:
-        push 0x4913B0
-        retn
-
-    sub_69586C:
-        push 0x69586C
-        retn
-
-    sub_6959C9:
-        push 0x6959C9
-        retn
-
-    loc_51A154:
-        push 0x51A154
-        retn
-    }
-}
-
-void __declspec(naked) a_MinesControls5()
-{
-    __asm
-    {
-        mov esi, ds: [swtControl16_ptr]
-        cmp esi, ds: [0x78E938]
-        jne end
-        mov edx, 0x9
-        mov eax, ds: [0x78D5F4]
-        call sub_491490
-        and eax, 0xFF
-        mov ds: [0x70E1B0], eax
-
-    end:
-        call sub_5194C0
-        jmp loc_51A5A7
-
-    sub_491490:
-        push 0x491490
-        retn
-
-    loc_51A5A7:
-        push 0x51A5A7
-        retn
-
-    sub_5194C0:
-        push 0x5194C0
-        retn
-    }
-}
-
-const char* controls_gui_page = "controls2.cgf";
-
 void Mines()
 {
     injector::MakeJMP(0x53393C, a_MinesShop, true);
@@ -2047,18 +1846,6 @@ void Mines()
     injector::MakeNOP(0x5830EB, 7, true);
     injector::MakeJMP(0x56713F, a_MinesEventInfoMP, true);
     injector::MakeJMP(0x4649B9, a_MineCapacity, true);
-    injector::MakeJNE(0x43E190, a_MineFunc, true);
-    injector::MakeJMP(0x465328, a_MineDropTimer, true);
-    injector::MakeJMP(0x63C9E7, a_DeleteAllMines, true);
-    injector::MakeJMP(0x44BEC7, a_ResetCondition, true);
-    injector::MakeJMP(0x5A9C33, a_MinesHUD, true);
-    injector::MakeJMP(0x4033A6, a_MinesAI, true);
-    injector::MakeJMP(0x6015B0, a_MinesHandler, true);
-    injector::MakeJMP(0x4D1624, a_MinesExplosion, true);
-    injector::MakeJMP(0x4D0A9E, a_MinesExplosion2, true);
-    injector::MakeJMP(0x4D164D, a_MinesShowInfo, true);
-    injector::MakeJMP(0x5065CD, a_MinesShowInfo2, true);
-    injector::MakeJMP(0x5084F0, a_MinesEventHandler, true);
     injector::WriteMemory<BYTE>(0x43E1A9, 0xC3, true);
     injector::WriteMemory<BYTE>(0x50DC67, 6, true); // HUD message - Mine Hit
     injector::WriteMemory<BYTE>(0x50DCD4, 6, true); // HUD message - Double Mine Hit
@@ -2069,6 +1856,17 @@ void Mines()
     injector::MakeJMP(0x51A14F, a_MinesControls4, true);
     injector::MakeJMP(0x51A5A2, a_MinesControls5, true);
     injector::MakeNOP(0x5B5D41, 2, true);
+    injector::MakeJNE(0x43E190, a_MineFunc, true);
+    injector::MakeJMP(0x5A9C33, a_MinesHUD, true);
+    injector::MakeJMP(0x465328, a_MineDropTimer, true);
+    injector::MakeJMP(0x63C9E7, a_DeleteAllMines, true);
+    injector::MakeJMP(0x44BEC7, a_ResetCondition, true);
+    injector::MakeJMP(0x4033A6, a_MinesAI, true);
+    injector::MakeJMP(0x6015B0, a_MinesHandler, true);
+    injector::MakeJMP(0x4D1624, a_MinesExplosion, true);
+    injector::MakeJMP(0x4D164D, a_MinesShowInfo, true);
+    injector::MakeJMP(0x5065CD, a_MinesShowInfo2, true);
+    injector::MakeJMP(0x5084F0, a_MinesEventHandler, true);
 }
 
 
